@@ -11,13 +11,43 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import {firebase} from "./Firebase/congig"
 import {AuthContext} from "./contex"
 import { unstable_renderSubtreeIntoContainer } from 'react-dom';
+import {createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const AuthDone = createStackNavigator()
+const HomeStack = createStackNavigator()
+
+const HomeScreen = ()=>{
+  return(
+    <HomeStack.Navigator headerMode='none'>
+      <HomeStack.Screen  name="Home" component={Home}/>
+    </HomeStack.Navigator>
+
+  )
+}
+const SearchStack = createStackNavigator()
+const SearchScreen = () =>{
+  return(
+    <SearchStack.Navigator headerMode="none">
+      <SearchStack.Screen name="Search" component={Search}/>
+    </SearchStack.Navigator>
+  )
+}
+
+const ProfileStack = createStackNavigator()
+const ProfileScreen = () =>{
+  return(
+    <ProfileStack.Navigator headerMode="none">
+      <ProfileStack.Screen name="Profile" component={Profile}/>
+    </ProfileStack.Navigator>
+  )
+}
+
+
 
 const AuthDoneScreen = () =>{
   return(
   <AuthDone.Navigator headerMode="none">
-    <AuthDone.Screen name="Home" component={Home}/>
+    
   </AuthDone.Navigator>
   )
 }
